@@ -3,6 +3,9 @@ import java.lang.String;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+/**
+ * 定义配置文件的字段名
+ */
 public interface ConfigConstant {
     String CONFIG_FILE="summer.properties";
     String JDBC_DRIVER="summer.framework.jdbc.driver";

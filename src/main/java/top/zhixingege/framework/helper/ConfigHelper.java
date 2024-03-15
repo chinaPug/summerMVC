@@ -1,9 +1,14 @@
-package top.zhixingege.framework;
+package top.zhixingege.framework.helper;
 
-import top.zhixingege.framework.Utils.PropsUtils;
+import top.zhixingege.framework.ConfigConstant;
+import top.zhixingege.framework.utils.PropsUtils;
 
 import java.util.Properties;
 
+/**
+ * 配置文件助手类：
+ *  功能：用于获取配置文件中用户的配置值
+ */
 public final class ConfigHelper {
     private static final Properties CONFIG_PROPS= PropsUtils.loadProps(ConfigConstant.CONFIG_FILE);
     /**

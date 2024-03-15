@@ -1,4 +1,4 @@
-package top.zhixingege.framework.Utils;
+package top.zhixingege.framework.utils;
 
 import org.apache.commons.lang3.StringUtils; /**
  * 字符串工具类

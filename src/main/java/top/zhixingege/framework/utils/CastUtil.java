@@ -1,4 +1,4 @@
-package top.zhixingege.framework.Utils;
+package top.zhixingege.framework.utils;
 
 /**
  * 类型转换工具 为 PropsUtils服务
