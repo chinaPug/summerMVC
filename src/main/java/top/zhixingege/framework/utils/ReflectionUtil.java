@@ -30,15 +30,15 @@ public final class ReflectionUtil {
 
     /**
      * 设置对象的成员变量值
-     * @param object
+     * @param aclass
      * @param field
      * @param value
      */
-    public static void setField(Object object, Field field,Object value){
+    public static void setField(Object aclass, Field field,Object value){
         try {
             //设置private变量的访问权
             field.setAccessible(true);
-            field.set(object,value);
+            field.set(aclass,value);
 
         } catch (Exception e) {
             LOGGER.error("set field failure",e);
