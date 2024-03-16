@@ -42,7 +42,7 @@ public final class ClassUtil {
         try {
             cls=Class.forName(className,isInitialized,getClassLoader());
         }catch (ClassNotFoundException e){
-            LOGGER.error("load class failure!!!",e);
+            LOGGER.error("load class failure",e);
             throw new RuntimeException(e);
         }
         return cls;
