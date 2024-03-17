@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public final class ReflectionUtil {
     private static final Logger LOGGER= LoggerFactory.getLogger(ReflectionUtil.class);
@@ -28,6 +29,25 @@ public final class ReflectionUtil {
         return instance;
     }
 
+
+    /**
+     * 调用方法
+     * @param obj
+     * @param method
+     * @param args
+     * @return
+     */
+    public static Object invokeMethod(Object obj, Method method,Object ... args){
+        Object result;
+        try {
+            method.setAccessible(true);
+            result=method.invoke(obj,args);
+        }catch (Exception e){
+            LOGGER.error("invoke method failure",e);
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
     /**
      * 设置对象的成员变量值
      * @param aclass
