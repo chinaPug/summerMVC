@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class PropsUtils {
     //日志
-    private static final Logger LoggER = LoggerFactory.getLogger(PropsUtils.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PropsUtils.class);
 
     /**
      * 加载属性文件
@@ -27,14 +27,14 @@ public class PropsUtils {
             properties = new Properties();
             properties.load(is);
         } catch (IOException e) {
-            LoggER.error("load properties file failure", e);
+            LOGGER.error("load properties file failure", e);
         } finally {
             if (is != null){
                 try {
                     is.close();
                     is=null;
                 }catch (Exception e){
-                    LoggER.error("close inputstream failure "+e);
+                    LOGGER.error("close inputstream failure "+e);
                 }
             }
         }
