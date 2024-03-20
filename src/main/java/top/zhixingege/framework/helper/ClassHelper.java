@@ -1,9 +1,11 @@
 package top.zhixingege.framework.helper;
 
+import com.fasterxml.jackson.databind.introspect.Annotated;
 import top.zhixingege.framework.annotation.Controller;
 import top.zhixingege.framework.annotation.Service;
 import top.zhixingege.framework.utils.ClassUtil;
 
+import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -77,6 +79,36 @@ public final class ClassHelper {
         Set<Class<?>> classSet=new HashSet<>();
         classSet.addAll(getControllerClassSet());
         classSet.addAll(getServiceClassSet());
+        return classSet;
+    }
+
+    /**
+     * 获取应用包名下某父类（或者接口）的所有子类（或者实现类）
+     * @param superClass
+     * @return
+     */
+    public static Set<Class<?>> getClassSetBySuper(Class<?> superClass){
+        Set<Class<?>> classSet=new HashSet<>();
+        for (Class<?> cls : CLASS_SET) {
+            if (superClass.isAssignableFrom(cls)&&!superClass.equals(cls)){
+                classSet.add(cls);
+            }
+        }
+        return classSet;
+    }
+
+    /**
+     * 获取应包名下带有指定注解的所有类
+     * @param annotation
+     * @return
+     */
+    public static Set<Class<?>> getClassSetByAnnotation(Class<? extends Annotation> annotation){
+        Set<Class<?>> classSet=new HashSet<>();
+        for (Class<?> cls : CLASS_SET) {
+            if (cls.isAnnotationPresent(annotation)){
+                classSet.add(cls);
+            }
+        }
         return classSet;
     }
 }

@@ -1,9 +1,6 @@
 package top.zhixingege.framework;
 
-import top.zhixingege.framework.helper.BeanHelper;
-import top.zhixingege.framework.helper.ClassHelper;
-import top.zhixingege.framework.helper.ControllerHelper;
-import top.zhixingege.framework.helper.IocHelper;
+import top.zhixingege.framework.helper.*;
 import top.zhixingege.framework.utils.ClassUtil;
 
 public final class HelperLoader {
@@ -12,7 +9,8 @@ public final class HelperLoader {
                 ClassHelper.class,
                 BeanHelper.class,
                 IocHelper.class,
-                ControllerHelper.class
+                ControllerHelper.class,
+                AopHelper.class
         };
         for (Class<?> aClass : classes) {
             ClassUtil.loadClass(aClass.getName(),false);
