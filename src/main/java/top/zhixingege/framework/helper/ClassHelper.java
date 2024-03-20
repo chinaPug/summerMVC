@@ -90,6 +90,7 @@ public final class ClassHelper {
     public static Set<Class<?>> getClassSetBySuper(Class<?> superClass){
         Set<Class<?>> classSet=new HashSet<>();
         for (Class<?> cls : CLASS_SET) {
+            //Class.isAssignableFrom()判断cls是否是superClass的子类或者实现类
             if (superClass.isAssignableFrom(cls)&&!superClass.equals(cls)){
                 classSet.add(cls);
             }
