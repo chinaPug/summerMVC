@@ -37,12 +37,14 @@ public final class AopHelper {
     /**
      * 获取proxy到target的一对多映射
      * @return
-     * @throws Exception
      */
-    private static Map<Class<?>,Set<Class<?>>> createProxyMap() throws Exception{
+    private static Map<Class<?>,Set<Class<?>>> createProxyMap() {
         Map<Class<?>,Set<Class<?>>> proxyMap=new HashMap<>();
         //proxy类通过有无继承AspectProxy抽象类来判断
         Set<Class<?>> proxyClassSet=ClassHelper.getClassSetBySuper(AspectProxy.class);
+        for (Class<?> aClass : proxyClassSet) {
+            System.out.println(aClass.getName());
+        }
         //遍历proxy类集合
         for (Class<?> cls : proxyClassSet) {
             //如果有Aspect注解，则是切面
@@ -51,6 +53,10 @@ public final class AopHelper {
                 //根据aspect注解里的标注获取所有切点类
                 Set<Class<?>> targetClassSet=createTargetClassSet(aspect);
                 //将proxy和target类一对多映射
+                System.out.println(cls.getName());
+                for (Class<?> aClass : targetClassSet) {
+                    System.out.println(aClass.getName());
+                }
                 proxyMap.put(cls,targetClassSet);
             }
         }

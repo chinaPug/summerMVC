@@ -30,7 +30,9 @@ public final class ControllerHelper {
                             if (mapping.matches("\\w+:/\\w*")){
                                 String[] array=mapping.split(":");
                                 if (ArrayUtil.isNotEmpty(array)&&array.length==2){
-                                    Request request=new Request(array[0],array[1]);
+                                    String requestMethod=array[0];
+                                    String requestPath=array[1];
+                                    Request request=new Request(requestMethod,requestPath);
                                     Handler handler=new Handler(aClass,method);
                                     ACTION_MAP.put(request,handler);
                                 }

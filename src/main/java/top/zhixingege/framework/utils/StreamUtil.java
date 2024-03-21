@@ -15,7 +15,7 @@ public final class StreamUtil {
         try {
             BufferedReader reader=new BufferedReader(new InputStreamReader(in));
             String line;
-            while (Objects.isNull(line = reader.readLine())){
+            while (!Objects.isNull(line = reader.readLine())){
                 sb.append(line);
             }
         } catch (Exception e) {

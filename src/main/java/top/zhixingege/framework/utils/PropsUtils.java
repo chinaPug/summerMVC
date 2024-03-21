@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
 import java.util.Properties;
 
 public class PropsUtils {
@@ -22,7 +23,6 @@ public class PropsUtils {
                     .getResourceAsStream(fileName);
             if (is == null) {
                 throw new FileNotFoundException(fileName + "filename");
-
             }
             properties = new Properties();
             properties.load(is);
