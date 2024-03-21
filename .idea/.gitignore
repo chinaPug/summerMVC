@@ -7,5 +7,7 @@
 /dataSources/
 /dataSources.local.xml
 #本地测试
-/src/test/
+test/
+base/
+resources/
 
