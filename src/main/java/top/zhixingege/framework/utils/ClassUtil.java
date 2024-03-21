@@ -60,7 +60,7 @@ public final class ClassUtil {
                 Enumeration是一个远古接口，JDK1.0就已经出现，早于迭代器Iter。用于迭代远古集合，Vector或者HashTable；仅仅存在两个方法，是否存在下一个元素和递归获取下一个元素。
              */
             //这里使用了当前的类加载器去获取资源，值得注意的是，在java中“.”表示运行class文件时的目录，而“/”则代表磁盘分区，因此，在获取资源时，需要进行替换。
-            Enumeration<URL> urls=getClassLoader().getResources(packageName.replace(".","/"));
+            Enumeration<URL> urls=getClassLoader().getResources(packageName.replaceAll("\\.","/"));
             while (urls.hasMoreElements()){
                 //为什么还要判断空呢？？？
                 URL url=urls.nextElement();
@@ -112,28 +112,27 @@ public final class ClassUtil {
      */
     public static void addClass(Set<Class<?>> classSet,String packagePath,String packageName){
         File[] files=new File(packagePath).listFiles(pathname -> (pathname.isFile()&&pathname.getName().endsWith(".class"))||pathname.isDirectory());
-        if (files != null) {
-            for(File file:files){
-                String fileName=file.getName();
-                if (file.isFile()){
-                    String className=fileName.substring(0,fileName.lastIndexOf("."));
-                    if (StringUtil.isNotEmpty(packageName)){
-                        className= packageName + "." + className;
-                    }
-                    doAddClass(classSet,className);
-                }else {
-                    String subPackagePath=fileName;
-                    String subPackageName=fileName;
-                    if (StringUtil.isNotEmpty(packagePath)){
-                        subPackagePath=packagePath+"/"+subPackagePath;
-                    }
-                    if (StringUtil.isNotEmpty(packageName)){
-                        subPackageName=packageName+"/"+subPackageName;
-                    }
-                    addClass(classSet,subPackagePath,subPackageName);
+        for(File file:files){
+            String fileName=file.getName();
+            if (file.isFile()){
+                String className=fileName.substring(0,fileName.lastIndexOf("."));
+                if (StringUtil.isNotEmpty(packageName)){
+                    className= packageName + "." + className;
                 }
+                doAddClass(classSet,className);
+            }else {
+                String subPackagePath=fileName;
+                String subPackageName=fileName;
+                if (StringUtil.isNotEmpty(packagePath)){
+                    subPackagePath=packagePath+"/"+subPackagePath;
+                }
+                if (StringUtil.isNotEmpty(packageName)){
+                    subPackageName=packageName+"."+subPackageName;
+                }
+                addClass(classSet,subPackagePath,subPackageName);
             }
         }
+
     }
 
     /**

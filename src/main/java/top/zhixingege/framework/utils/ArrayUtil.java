@@ -7,6 +7,6 @@ public final class ArrayUtil {
         return Objects.isNull(objects)||objects.length==0;
     }
     public static boolean isNotEmpty(Object[] objects){
-        return isEmpty(objects);
+        return !isEmpty(objects);
     }
 }

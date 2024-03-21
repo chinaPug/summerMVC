@@ -13,7 +13,8 @@ public final class HelperLoader {
                 AopHelper.class
         };
         for (Class<?> aClass : classes) {
-            ClassUtil.loadClass(aClass.getName(),false);
+            System.out.println(aClass.getName());
+            ClassUtil.loadClass(aClass.getName(),true);
         }
     }
 }

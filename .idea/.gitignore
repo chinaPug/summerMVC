@@ -6,3 +6,5 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+#本地测试
+../src/main/java/top/zhixingege/framework/base/

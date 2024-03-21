@@ -64,6 +64,7 @@ public class DispatcherServlet extends HttpServlet {
                 paramMap.put(paramName,paramValue);
             }
             //处理body类型的参数
+            System.out.println(StreamUtil.getString(req.getInputStream()));
             String body= CodecUtil.decodeURL(StreamUtil.getString(req.getInputStream()));
             if (StringUtil.isNotEmpty(body)){
                 String[] params= StringUtils.split(body,"&");
