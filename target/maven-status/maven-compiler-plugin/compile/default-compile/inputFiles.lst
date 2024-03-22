@@ -16,6 +16,7 @@ D:\codes\javas\SummerMVC\src\main\java\top\zhixingege\framework\utils\JsonUtil.j
 D:\codes\javas\SummerMVC\src\main\java\top\zhixingege\framework\utils\CastUtil.java
 D:\codes\javas\SummerMVC\src\main\java\top\zhixingege\framework\proxy\Proxy.java
 D:\codes\javas\SummerMVC\src\main\java\top\zhixingege\framework\HelperLoader.java
+D:\codes\javas\SummerMVC\src\main\java\top\zhixingege\framework\base\component\A.java
 D:\codes\javas\SummerMVC\src\main\java\top\zhixingege\framework\base\controller\TargetController.java
 D:\codes\javas\SummerMVC\src\main\java\top\zhixingege\framework\utils\StringUtil.java
 D:\codes\javas\SummerMVC\src\main\java\top\zhixingege\framework\helper\ControllerHelper.java
@@ -30,6 +31,7 @@ D:\codes\javas\SummerMVC\src\main\java\top\zhixingege\framework\bean\Data.java
 D:\codes\javas\SummerMVC\src\main\java\top\zhixingege\framework\base\aop\ControllerAspect.java
 D:\codes\javas\SummerMVC\src\main\java\top\zhixingege\framework\utils\CollectionUtil.java
 D:\codes\javas\SummerMVC\src\main\java\top\zhixingege\framework\annotation\Service.java
+D:\codes\javas\SummerMVC\src\main\java\top\zhixingege\framework\base\component\B.java
 D:\codes\javas\SummerMVC\src\main\java\top\zhixingege\framework\helper\ConfigHelper.java
 D:\codes\javas\SummerMVC\src\main\java\top\zhixingege\framework\annotation\Inject.java
 D:\codes\javas\SummerMVC\src\main\java\top\zhixingege\framework\helper\AopHelper.java

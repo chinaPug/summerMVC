@@ -8,12 +8,11 @@ public final class HelperLoader {
         Class<?>[] classes={
                 ClassHelper.class,
                 BeanHelper.class,
+                AopHelper.class,
                 IocHelper.class,
-                ControllerHelper.class,
-                AopHelper.class
+                ControllerHelper.class
         };
         for (Class<?> aClass : classes) {
-            System.out.println(aClass.getName());
             ClassUtil.loadClass(aClass.getName(),true);
         }
     }

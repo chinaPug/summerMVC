@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Objects;
 
 public final class ReflectionUtil {
     private static final Logger LOGGER= LoggerFactory.getLogger(ReflectionUtil.class);
@@ -50,16 +51,15 @@ public final class ReflectionUtil {
     }
     /**
      * 设置对象的成员变量值
-     * @param aclass
+     * @param cls
      * @param field
      * @param value
      */
-    public static void setField(Object aclass, Field field,Object value){
+    public static void setField(Object cls, Field field,Object value){
         try {
             //设置private变量的访问权
             field.setAccessible(true);
-            field.set(aclass,value);
-
+            field.set(cls,value);
         } catch (Exception e) {
             LOGGER.error("set field failure",e);
             throw new RuntimeException(e);
